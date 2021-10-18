@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="estilos.css" rel="stylesheet" type="text/css">
+    <title>Inicio</title>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1"></span>
+        </div>
+    </nav>
+
+        <div class="container">
+                      <div>
+                        <p>Convertir Cripto a Dolar</p>
+                        <div class= "mx-auto" style="width: 200px;">
+                          <input type="number" id="cripto" class="form-control">
+                        </div>
+                   
+                        <select>
+                          <option id="#opciones"></option>
+                        </select>
+                        <p> <button type="button" id="boton" class="btn btn-primary">Convertir</button></p>
+                        <p id='resultado'></p>
+                      </div>
+    
+                      
+        <div class="table-responsive-lg">
+            <table id="tabla" class="table table-light table-striped" > 
+              <p> <button type="submit" id="botonActualizar" class="btn btn-primary">Recargar</button></p>
+                  <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Simbolo</th>
+                        <th scope="col">Precio(USD)</th>
+                        <th scope="col">24h %</th>
+                        <th scope="col">Volumen (24h)</th>
+                    </tr>
+                  </thead>
+                
+            </table>
+        </div>
+  
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark">Matias Klingeman</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src=app.js></script>
+</body>
+</html>
