@@ -7,6 +7,7 @@ comenzar();
 
 $("#botonActualizar").click(function () {
     comenzar()
+    console.log('esta recargando');
   
 })
 
@@ -16,6 +17,7 @@ function comenzar () {
     $.get(URLGET_CRIP, function (respuesta) {
       
             let almacenCriptomoneda = respuesta;
+            console.log(almacenCriptomoneda);
             $("#tabla").empty();
             for( const criptomoneda of almacenCriptomoneda) {
                 $("#tabla").append(
@@ -30,40 +32,66 @@ function comenzar () {
                                </tr>
                     </tbody>`);
                 
+                
                 $("#opciones").append (
-                        `<option>${criptomoneda.current_price}</option>`       
+                        `<option value=${criptomoneda.id}>${criptomoneda.name}</option>`       
+                        
                 );
+
+                
             }
+            
             
            
     })
 
 }
 
-    
-    // $.getJSON('divisas.json', function(data) {
-    //     console.log(data);
-    // })
-
 //CONVERSOR
 
 function convertir (){
-    let cantidadCripto = document.getElementById('cripto').value
+
+    $(document).ready(function(){
+        
+    $("#opciones").change(function(){
+        console.log("funciona");
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // let cantidadCripto = document.getElementById('cripto').value
     
 
-    let total = parseFloat(cantidadCripto)* 48076.50     
-    total = total.toFixed(2);
+    // let total = parseFloat(cantidadCripto) 
+    // total = total.toFixed(2);
 
-    if (cantidadCripto != ''){
-     document.getElementById('resultado').innerText= total;
-    } else {
-        document.getElementById('resultado').innerText = 'Por favor, ingrese la cantidad de bitcoin que desea convertir';
-    }
+    // if (cantidadCripto != ''){
+    //  document.getElementById('resultado').innerText= total;
+    // } else {
+    //     document.getElementById('resultado').innerText = 'Por favor, ingrese la cantidad de bitcoin que desea convertir';
+    // }
 }                                   
 
 $("#boton").click(function () {
     convertir();
 })
-                        
 
 
+
+ // $.getJSON('divisas.json', function(data) {
+    //     console.log(data);
+    // })
