@@ -6,55 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="estilos.css" rel="stylesheet" type="text/css">
+    
     <title>Inicio</title>
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1"></span>
-        </div>
-    </nav>
 
-        <div class="container">
-                      <div>
-                        <p>Convertir Cripto a Dolar</p>
-                        <div class= "mx-auto" style="width: 200px;">
-                          <input type="number" id="cripto" class="form-control">
-                        </div>
-                   
-                        <select id="opciones" class="form-select mx-auto"></select>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand" href="index.html">CoinMarket</span>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Criptomonedas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="convertidor.html">Conversion</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <button type="botonLogin" id="botonLogin" class="btn btn-secondary px-3 me-2" data-bs-toggle="modal" data-bs-target="#myModal">
+        Iniciar sesión
+        </button>
+        <button type="botonRegistro" id="botonRegistro" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#myModal1">
+          Registrate
+        </button>
+        <p id="usuario"></p>
+    </div>
+  </nav>
 
-                        <p> <button type="button" id="boton" class="btn btn-primary">Convertir</button></p>
-                        <p id='resultado'></p>
-                      </div>
-    
-                      
-        <div class="table-responsive-lg">
-            <table id="tabla" class="table table-light table-striped" > 
-              <p> <button type="submit" id="botonActualizar" class="btn btn-primary">Recargar</button></p>
-                  <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Simbolo</th>
-                        <th scope="col">Precio(USD)</th>
-                        <th scope="col">24h %</th>
-                        <th scope="col">Volumen (24h)</th>
-                    </tr>
-                  </thead>
-                
-            </table>
-        </div>
+
   
-        </div>
-        <footer class="bg-light text-center text-lg-start">
-          <!-- Copyright -->
-          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2021 Copyright:
-            <a class="text-dark">Matias Klingeman</a>
+
+  
+      <div class="container" id="container">
+
+        <div id="iniciarSesion"></div>
+        <div id="registro"></div>
+      
+          <h2 text-left>Principales 100 Criptomonedas por capitalización de mercado</h2>
+                        
+          <div class="table">
+              <table id="tabla" class="table table-borderless" > 
+                    <thead>
+                      <tr>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Simbolo</th>
+                          <th scope="col">Precio(USD)</th>
+                          <th scope="col">24h %</th>
+                          <th scope="col">Volumen (24h)</th>
+                      </tr>
+                    </thead>
+                  
+              </table>
           </div>
-          <!-- Copyright -->
-        </footer>
+         
+          
+          
+          <div>
+
+       
+
+
+         
+
+      <hr>
+
+      <footer class="bg-light text-center text-lg-start" id="#footer">
+      
+        <div class="container p-4 pb-0">
+          <form action="">
+      
+            <div class="row">
+   
+              <div class="col-auto mb-4 mb-md-0">
+                <p class="pt-2">
+                  <strong>¡Suscribete para no perderte ninguna informacion sobre las criptos!</strong>
+                </p>
+              </div>
+    
+      
+      
+              <div class="col-md-5 col-12 mb-4 mb-md-0">
+   
+                <div class="form-outline mb-4">
+                  <input type="email" id="" class="form-control" placeholder="Ingrese su email" />
+           
+                </div>
+              </div>
+         
+      
+           
+              <div class="col-auto mb-4 mb-md-0" id="div-suscribir">
+                <button type="button" id="botonSuscribir" class="btn btn-primary mb-4">
+                  Subscribete ahora
+                </button>
+              
+              </div>
+        
+            </div>
+           
+          </form>
+        </div>
+
+        <div class="text-center p-3">
+          <p class="text-muted">© 2021 CoinMarket. Todos los derechos reservados.</a>
+        </div>
+     
+      </footer>
 
 
 
@@ -67,14 +127,8 @@
 
 
 
-
-
-
-
-
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/67f4e56c92.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src=app.js></script>
 </body>
