@@ -2,7 +2,7 @@
 const URLGET_CRIP = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false"
 const URLGET_DIV = "http://api.exchangeratesapi.io/v1/latest?access_key=452e716741fcbd33952a5e6910119093"
 
-
+convertir();
 comenzar();
 
 $("#botonActualizar").click(function () {
@@ -34,7 +34,7 @@ function comenzar () {
                 
                 
                 $("#opciones").append (
-                        `<option value=${criptomoneda.id}>${criptomoneda.name}</option>`       
+                        `<option selected="${criptomoneda.name}" value=${criptomoneda.id}>${criptomoneda.name}</option>`       
                         
                 );
 
@@ -52,7 +52,7 @@ function comenzar () {
 function convertir (){
 
     $(document).ready(function(){
-        
+
     $("#opciones").change(function(){
         console.log("funciona");
     })
