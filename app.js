@@ -4,7 +4,7 @@ const URLGET_DIV = "http://api.exchangeratesapi.io/v1/latest?access_key=874a110b
 
 
 comenzar();
-almacenarDatos();
+
 
 function comenzar () {
     
@@ -168,9 +168,12 @@ $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria
 
 </div>`)
 
+
 function almacenarDatos () {
 
 let emailRegistro = $("#emailRegistro").val();
+
+console.log(emailRegistro);
 
 localStorage.setItem('emailRegistro', emailRegistro);
 
@@ -187,10 +190,13 @@ $("#myModal").animate({
 },"slow");
 });
 
-$("#botonRegistro").click(() => { 
+$("#botonRegistro").click((e) => { 
+    e.preventDefault()
+
     $("#myModal1").animate({
         height: 'toggle'
 },"slow");
+
 almacenarDatos();
 });
 
