@@ -1,7 +1,5 @@
 
 const URLGET_CRIP = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-const URLGET_DIV = "http://api.exchangeratesapi.io/v1/latest?access_key=874a110b541ed82e509e950a45917795"
-
 
 comenzar();
 
@@ -44,30 +42,9 @@ function comenzar () {
 
 }
 
-    $.get(URLGET_DIV, function (respuesta){
-
-
-        localStorage.setItem('divisa', JSON.stringify(respuesta))
-
-        let almacenDivisas = respuesta;
-
-        $("#opcionesDivisa").append(
-            `<option value=${almacenDivisas.rates.ARS}>ARS</option>`       
-           
-        )
-        $("#opcionesDivisa").append(
-            `<option selected value=${almacenDivisas.rates.USD}>USD</option>`       
-           
-        )
-        $("#opcionesDivisa").append(
-            `<option value=${almacenDivisas.rates.EUR}>EUR</option>`       
-           
-        )
-    
-    })
 
 function convertir (){
-    // CRIPTOMONEDAS
+
     let monedaLocal = JSON.parse(localStorage.getItem('criptomonedas')) //traigo las monedas que guarde en localStorage
     console.log(monedaLocal);
 
@@ -84,9 +61,11 @@ function convertir (){
 
 
     if (cantidadCripto != ''){
-     document.getElementById('resultado').innerText = cantidadCripto + ' ' + monedaSelect + ' '  + ' ' + '=' + '' + total;
+
+        document.getElementById('resultado').textContent = cantidadCripto + ' ' + monedaSelect + ' '  + ' ' + '=' + ' ' + total + 'USD';
     } else {
-        document.getElementById('resultado').innerText = 'Por favor, ingrese la cantidad de bitcoin que desea convertir';
+
+        document.getElementById('resultado').textContent = 'Por favor, ingrese la cantidad de bitcoin que desea convertir';
     }
 }            
 
@@ -96,41 +75,6 @@ $("#boton").click(function () {
 })
 
 
-$("#iniciarSesion").prepend(`<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title id="modalTitle">Iniciar sesión</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"></button>
-            </div>
-            <div class="modal-body">
-            <form>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <label class="form-label">Correo Electronico</label>
-                <input type="email" id="emailSesion" class="form-control" />
-        
-              
-            </div>
-          
-          
-            <div class="form-outline mb-4">
-                <label class="form-label" style="text-align: left">Contraseña</label>
-                <input type="password" id="contrasenaSesion" class="form-control" />
-                <p>La contraseña debe contener letras y números, con una longitud mínima de 8 caracteres.</p>
-                
-            </div>
-          
-            <button type="submit" id="botonSesion" class="btn btn-primary btn-block">Iniciar Sesión</button>
-          </form>
-            </div>
-            <div class="modal-footer">
-              
-            </div>
-        </div>
-    </div>
-
-   </div> `);
 
 $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
 <div class="modal-dialog">
@@ -140,24 +84,18 @@ $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"></button>
         </div>
         <div class="modal-body">
-        <form>
+        <form class=form-control>
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <label class="form-label">Correo Electronico</label>
-            <input type="email" id="emailRegistro" class="form-control" />
+            <label class="form-label">Ingrese un ID</label>
+            <input type="text" id="idRegistro" class="form-control"/>
     
           
         </div>
-      
-      
-        <div class="form-outline mb-4">
-            <label class="form-label" style="text-align: left">Contraseña</label>
-            <input type="password" id="contrasenaRegistro" class="form-control" />
-            <p>La contraseña debe contener letras y números, con una longitud mínima de 8 caracteres.</p>
-        </div>
 
       
-        <button type="submit" id="botonRegistro" class="btn btn-primary btn-block">Registrarse</button>
+        <button  id="botonRegistro2" class="btn btn-primary btn-block">Registrarse</button>
+        <span class="error"><p id="error"></p></span>
       </form>
         </div>
         <div class="modal-footer">
@@ -166,52 +104,62 @@ $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria
     </div>
 </div>
 
-</div>`)
+</div>`
+)
+
 
 
 function almacenarDatos () {
 
-let emailRegistro = $("#emailRegistro").val();
+  
+    let idRegistro = $("#idRegistro").val();
 
-console.log(emailRegistro);
+    if (idRegistro === ''){
+        console.log('Error');
 
-localStorage.setItem('emailRegistro', emailRegistro);
+    } else {
+        localStorage.setItem('idRegistro', idRegistro);
+        console.log(idRegistro);
+       
+    }
+    obtenerDatos();
+}
 
-console.log(emailRegistro);
+function obtenerDatos () {
+
+    if(localStorage.idRegistro){
+       let idUser = localStorage.getItem('idRegistro')
+       document.getElementById('usuario').innerHTML = `<div>${idUser}<i class="fa-solid fa-user-large fa-lg"></i></div>`;
+       document.getElementById('cerrarSesion').style.display;
+       document.getElementById('botonRegistro1').style.display= 'none';
+       
+    }
+    else {
+        document.getElementById('botonRegistro1').style.display;
+        document.getElementById('cerrarSesion').style.display = 'none';
+    }
+   
 
 }
 
 
 
 
-$("#botonLogin").click(() => { 
-$("#myModal").animate({
-    height: 'toggle'
-},"slow");
-});
+obtenerDatos();
 
-$("#botonRegistro").click((e) => { 
+$("#botonRegistro2").click((e) => {
     e.preventDefault()
-
-    $("#myModal1").animate({
-        height: 'toggle'
-},"slow");
-
-almacenarDatos();
+    almacenarDatos();
+    $("#myModal1").modal('hide');
 });
 
 
-                 
+$("#cerrarSesion").click (() => {
+    $("#cerrarSesion").remove()
+    $("#usuario").remove()
+    localStorage.clear()
+})
 
 
 
 
-
-
-
-
-
-
-
-
- 

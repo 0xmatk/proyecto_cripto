@@ -26,14 +26,17 @@
         </ul>
       </div>
       <div class="d-flex align-items-center">
-        <button type="botonLogin" id="botonLogin" class="btn btn-secondary px-3 me-2" data-bs-toggle="modal" data-bs-target="#myModal">
-        Iniciar sesión
-        </button>
-        <button type="botonRegistro" id="botonRegistro" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#myModal1">
+        <button type="botonRegistro" id="botonRegistro1" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#myModal1">
           Registrate
         </button>
+        
+      </div>
+      
         <p id="usuario"></p>
-    </div>
+  
+      <button type="submit" class = "btn btn-primary me-3" id="cerrarSesion" style="display:none;">Cerrar Sesion</button>
+      
+  </div>
   </nav>
 
 
@@ -42,8 +45,10 @@
   
       <div class="container" id="container">
 
-        <div id="iniciarSesion"></div>
         <div id="registro"></div>
+       
+        
+        
       
           <h2 text-left>Principales 100 Criptomonedas por capitalización de mercado</h2>
                         
@@ -91,7 +96,7 @@
               <div class="col-md-5 col-12 mb-4 mb-md-0">
    
                 <div class="form-outline mb-4">
-                  <input type="email" id="" class="form-control" placeholder="Ingrese su email" />
+                  <input type="email" class="form-control" placeholder="Ingrese su email" />
            
                 </div>
               </div>
@@ -99,7 +104,7 @@
       
            
               <div class="col-auto mb-4 mb-md-0" id="div-suscribir">
-                <button type="button" id="botonSuscribir" class="btn btn-primary mb-4">
+                <button type="button" class="btn btn-primary mb-4">
                   Subscribete ahora
                 </button>
               
