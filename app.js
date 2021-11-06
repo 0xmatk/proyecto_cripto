@@ -46,13 +46,13 @@ function comenzar () {
 function convertir (){
 
     let monedaLocal = JSON.parse(localStorage.getItem('criptomonedas')) //traigo las monedas que guarde en localStorage
-    console.log(monedaLocal);
+ 
 
     let monedaSelect=$("#opcionesCripto").val() //identifico el option que esta elegido o por defecto
-    console.log(monedaSelect);
+    
 
     let priceMoneda= monedaLocal.find(el=> el.id == monedaSelect) //busco en el array que traigo del LocalStorage el que coincida con el option
-    console.log(priceMoneda);
+ 
 
     let cantidadCripto = document.getElementById('cripto').value
 
