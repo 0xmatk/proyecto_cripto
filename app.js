@@ -89,6 +89,7 @@ $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria
         <div class="form-outline mb-4">
             <label class="form-label">Ingrese un ID</label>
             <input type="text" id="idRegistro" class="form-control"/>
+            <label class="form-label" id="alerta"></label>
     
           
         </div>
@@ -111,32 +112,30 @@ $("#registro").prepend(`<div class="modal fade" id="myModal1" tabindex="-1" aria
 
 function almacenarDatos () {
 
-  
     let idRegistro = $("#idRegistro").val();
-
-    if (idRegistro === ''){
-        console.log('Error');
-
-    } else {
+    
         localStorage.setItem('idRegistro', idRegistro);
-        console.log(idRegistro);
-       
-    }
-    obtenerDatos();
+   
+        obtenerDatos();
 }
 
 function obtenerDatos () {
 
     if(localStorage.idRegistro){
-       let idUser = localStorage.getItem('idRegistro')
+       let idUser = localStorage.getItem('idRegistro');
        document.getElementById('usuario').innerHTML = `<div>${idUser}<i class="fa-solid fa-user-large fa-lg"></i></div>`;
-       document.getElementById('cerrarSesion').style.display;
+
+       document.getElementById('cerrarSesion').style.display = 'inline';
+
        document.getElementById('botonRegistro1').style.display= 'none';
+    
        
     }
     else {
         document.getElementById('botonRegistro1').style.display;
+
         document.getElementById('cerrarSesion').style.display = 'none';
+        
     }
    
 
@@ -147,19 +146,51 @@ function obtenerDatos () {
 
 obtenerDatos();
 
+$("#botonRegistro2").prop('disabled', true);
+let input = document.getElementById("idRegistro");
+
+input.onkeydown = () => {
+    $("#botonRegistro2").prop('disabled', false);
+   
+}
+
+
 $("#botonRegistro2").click((e) => {
-    e.preventDefault()
+    e.preventDefault();
     almacenarDatos();
     $("#myModal1").modal('hide');
+
 });
 
 
 $("#cerrarSesion").click (() => {
-    $("#cerrarSesion").remove()
-    $("#usuario").remove()
-    localStorage.clear()
+    document.getElementById('botonRegistro1').style.display = 'inline';
+
+    $("#cerrarSesion").css('display', 'none')
+
+    document.getElementById('usuario').innerHTML = ""
+
+    document.getElementById("idRegistro").value = "";
+
+    localStorage.clear();
+
+    $("#botonRegistro2").prop('disabled', true);
 })
 
+$("#botonSuscribir").click(() => {
+
+    let emailSub = document.getElementById("emailSuscribir").value
+
+    if(emailSub) {
+
+    document.getElementById("emailSuscribir").value = "";
+    document.getElementById("mensajeSub").innerHTML = "¡Gracias por suscribirte!";
+    } else {
+        document.getElementById("emailSuscribir").value = "";
+    }
+
+
+})
 
 
 

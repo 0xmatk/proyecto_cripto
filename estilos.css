@@ -20,8 +20,17 @@
 
 h2 {
     margin: 50px 0 50px 0;
-    text-align: left;
+    text-align: center;
     font-size: 25px;
+}
+
+#footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px
 }
 
 #login {
@@ -44,15 +53,13 @@ p {
 #user p {
     font-size: 15px;
     font-weight: bold;
+    display: inline;
 }
 
 i {
     
     padding: 10px 10px 10px 10px;
-    
+    display: inline;
 }
 
-i:hover {
-    cursor: pointer;
-}
 
